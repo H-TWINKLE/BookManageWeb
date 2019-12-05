@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>#(title??)</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keyword" content="">
+
+<title>注册</title>
+
+<link rel="icon" type="image/png" href="#(base)/assets/img/logo.png"
+	sizes="32x32" />
+<!-- Bootstrap core CSS -->
+<link href="#(base)/admin/assets/css/bootstrap.css" rel="stylesheet">
+<!--external css-->
+<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="#(base)/admin/assets/css/style.css" rel="stylesheet">
+<link href="#(base)/admin/assets/css/style-responsive.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="#(base)/assets/css/toastr.css" />
+
+<script type="text/javascript">
+	var tips = "#(TipMsg??)";
+	var base = "#(base??)";
+</script>
+
+</head>
+
+<body>
+
+	<div id="login-page">
+		<div class="container">
+
+			<form class="form-login" action="#(base)/toregister" method="post">
+				<h2 class="form-login-heading">注册</h2>
+				<div class="login-wrap">
+					<input required="required" type="email" class="form-control"
+						placeholder="请输入邮箱" autofocus name="mail.mail_account"> <br>
+					<input type="password" required="required" class="form-control"
+						name="mail.mail_pass" placeholder="请输入密码"> <br> <input
+						type="text" required="required" class="form-control"
+						name="mail.mail_nickname" placeholder="请输入昵称"> <label
+						class="checkbox"> <span class="pull-right"> <a
+							data-toggle="modal" href="login.html#myModal"> 忘记密码</a>
+
+					</span>
+					</label>
+					<button class="btn btn-theme btn-block" 
+						type="submit">
+						<i class="fa fa-lock"></i> 提交
+					</button>
+					<hr>
+					<div class="registration">
+						已经拥有账号?<br /> <a class="" href="#(base)/"> 登录 </a>
+					</div>
+
+				</div>
+			</form>
+			<!-- Modal -->
+			<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+				tabindex="-1" id="myModal" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-hidden="true">&times;</button>
+							<h4 class="modal-title">忘记密码</h4>
+						</div>
+						<form action="#(base)/getpass" method="post" >
+							<div class="modal-body">
+								<p>请输入您的邮箱来找回密码.</p>
+								<input type="email" name="email" placeholder="请输入邮箱" required="required"
+									autocomplete="off" class="form-control placeholder-no-fix">
+
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">退出</button>
+								<button class="btn btn-theme" type="submit">提交</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- modal -->
+
+			</form>
+
+		</div>
+	</div>
+
+	<!-- js placed at the end of the document so the pages load faster -->
+	<script src="#(base)/admin/assets/js/jquery.js"></script>
+	<script src="#(base)/admin/assets/js/bootstrap.min.js"></script>
+	<script src="#(base)/assets/js/toastr.js"></script>
+	<script src="#(base)/assets/js/app.js"></script>
+
+	<!--BACKSTRETCH-->
+	<!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+	<script type="text/javascript"
+		src="#(base)/admin/assets/js/jquery.backstretch.min.js"></script>
+	<script>
+		$.backstretch("#(base)/admin/assets/img/login-bg.jpg", {
+			speed : 500
+		});
+	</script>
+
+
+</body>
+</html>

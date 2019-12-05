@@ -1,0 +1,87 @@
+#@_layout() #define _main()
+
+<!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+<!--main content start-->
+<section id="main-content">
+	<section class="wrapper">
+
+		<div class="row">
+			<div class="col-lg-9 main-chart" style="margin-top: 100px;">
+
+				<div class="row mtbox">
+					<div class="col-md-2 col-sm-2 col-md-offset-1 box0">
+						<div class="box1">
+							<span class="li_heart"></span>
+							<h3>+ #(count.get(0).get("count")??)</h3>
+						</div>
+						<p>共有 #(count.get(0).get("count")??) 名用户注册该网站!</p>
+					</div>
+					<div class="col-md-2 col-sm-2 box0">
+						<div class="box1">
+							<span class="li_cloud"></span>
+							<h3>+ #(count.get(1).get("count")??)</h3>
+						</div>
+						<p>共有#(count.get(1).get("count")??)名用户进行身份申请.</p>
+					</div>
+					<div class="col-md-2 col-sm-2 box0">
+						<div class="box1">
+							<span class="li_stack"></span>
+							<h3>+ #(count.get(2).get("count")??)</h3>
+						</div>
+						<p>您有#(count.get(2).get("count")??)本小说需要进行审核.</p>
+					</div>
+					<div class="col-md-2 col-sm-2 box0">
+						<div class="box1">
+							<span class="li_news"></span>
+							<h3>+ #(count.get(3).get("count")??)</h3>
+						</div>
+						<p>共有#(count.get(3).get("count")??)篇章节需要审核.</p>
+					</div>
+					<div class="col-md-2 col-sm-2 box0">
+						<div class="box1">
+							<span class="li_data"></span>
+							<h3>OK!</h3>
+						</div>
+						<p>服务器运行正常 Perfect!</p>
+					</div>
+
+				</div>
+
+
+			</div>
+			<!-- /col-lg-9 END SECTION MIDDLE -->
+
+
+			<!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->
+
+			<div class="col-lg-3 ds">
+				<!--COMPLETED ACTIONS DONUTS CHART-->
+				<h3>消息通知</h3>
+
+				#for(li:list??)
+				<div class="desc">
+					<div class="thumb">
+						<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+					</div>
+					<div class="details">
+						<p>
+							<muted>#(li.tip_dates??)<a color="red;" style="float: right;" href="#(base)/admin/deletetip?id=#(li.tip_id??)">删除</a></muted>
+							<br /> <small style="color:red;">#(li.tip_title??)</small><br />
+							#(li.tip_content??).<br />
+						</p>
+					</div>
+				</div>
+				#end
+			</div>
+			<!-- /col-lg-3 -->
+		</div>
+		<! --/row -->
+	</section>
+</section>
+
+<!--main content end-->
+#end

@@ -1,0 +1,110 @@
+#@_front() #define _fmain()
+
+<!-- banner -->
+<div class="banner">
+	<div id="carouselExampleIndicators" class="carousel slide"
+		data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0"
+				class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+		</ol>
+		<div class="carousel-inner" role="listbox">
+
+			#for(li:session.hot??)
+			<div
+				class="carousel-item #if(for.count==1) active #else item#(for.count??) #end"
+				style="background: url('#(base)/upload/temp/#(li.book_img??)'); background-size: 100%">
+				<div class="carousel-caption text-center">
+					<h3>
+						#(li.book_title??) <span>#(li.user_nickname??)</span>
+					</h3>
+					<a href="#(base)/books?id=#(li.book_id??)"
+						class="btn btn-sm animated-button gibson-three mt-4">开始阅读</a>
+				</div>
+			</div>
+			#end
+		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators"
+			role="button" data-slide="prev"> <span
+			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+			role="button" data-slide="next"> <span
+			class="carousel-control-next-icon" aria-hidden="true"></span> <span
+			class="sr-only">Next</span>
+		</a>
+	</div>
+	<!--//banner -->
+</div>
+
+<!--//banner-sec-->
+<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+	<div class="container-fluid">
+		<div class="inner-sec-shop px-lg-4 px-3">
+			<h3 class="tittle-w3layouts my-lg-4 my-4">热门书籍</h3>
+			<div class="row">
+
+				#for(li:book??)
+
+				<!-- /womens -->
+				<div class="col-md-3 product-men women_two"
+					style="margin-top: 40px;">
+					<div class="product-googles-info googles">
+						<div class="men-pro-item">
+							<div class="men-thumb-item">
+								<img src="#(base)/upload/temp/#(li.book_img??)"
+									class="img-fluid" alt="">
+								<div class="men-cart-pro">
+									<div class="inner-men-cart-pro">
+										<a href="#(base)/books?id=#(li.book_id??)"
+											class="link-product-add-cart">开始阅读</a>
+									</div>
+								</div>
+								<span class="product-new-top">热度：#(li.book_hot??)</span>
+							</div>
+							<div class="item-info-product">
+								<div class="info-product-price">
+									<div class="grid_meta">
+										<div class="product_price">
+											<h4>
+												<a href="#(base)/books?id=#(li.book_id??)"
+													style="font-size: 0.7em;">#(li.book_title??)</a>
+											</h4>
+											<div class="grid-price mt-2">
+												<span class="money ">作者：#(li.user_nickname??)</span>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				#end
+				<!-- /mens -->
+			</div>
+			<!--//row-->
+			<!--/meddle-->
+			<div class="row" style="margin-top: 20px;margin-bottom: -100px;">
+				<div class="col-md-12 middle-slider my-4">
+					<div class="middle-text-info ">
+
+						<h3 class="tittle-w3layouts two text-center my-lg-4 mt-3">雪霜文学</h3>
+						<div class="simply-countdown-custom" id="simply-countdown-custom"></div>
+
+					</div>
+				</div>
+			</div>
+			<!--//meddle-->
+		</div>
+	</div>
+</section>
+<!-- about -->
+
+#end

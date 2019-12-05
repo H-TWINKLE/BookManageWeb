@@ -1,0 +1,80 @@
+#@_front() #define _fmain()
+<!--//banner -->
+<!--/shop-->
+<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+	<div class="container">
+		<div class="inner-sec-shop pt-lg-4 pt-3">
+			<div class="row">
+				<div class="col-lg-4 single-right-left ">
+					<div class="grid images_3_of_2">
+						<div class="flexslider1">
+
+							<img src="#(base)/upload/temp/#(b.book_img??)" width="100%"
+								style="margin: auto;">
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8 single-right-left simpleCart_shelfItem"
+					style="margin: 0 auto; text-align: center; margin-top: 100px;">
+					<h3 style="margin-bottom: 20px;">#(b.book_title??)</h3>
+					<p>
+						<span class="item_price">类型：#(b.types_name??)</span>
+					<h5>热门程度：#(b.book_hot??)</h5>
+					</p>
+					<div class="occasion-cart">
+						<div class="googles single-item singlepage">
+							<button onclick="toread(#(begin.chapter_id??))" type="button" class="googles-cart pgoogles-cart">
+								开始阅读</button>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<!--/tabs-->
+				<div class="responsive_tabs">
+					<div id="horizontalTab">
+						<ul class="resp-tabs-list">
+							<li>图书简介</li>
+							<li>章节</li>
+						</ul>
+						<div class="resp-tabs-container">
+							<!--/tab_one-->
+							<div class="tab1">
+
+								<div class="single_page">
+									<h6>#(b.book_title??)</h6>
+									<div style="min-width: 1000px;">#(b.book_content??)</div>
+								</div>
+							</div>
+							<!--//tab_one-->
+							<div class="tab2">
+								<div class="single_page">
+									<h6>所有章节</h6>
+									<div
+										style="margin: 0 auto; text-align: center; min-width: 1000px;">
+
+										#for(li:chapter??)
+										<div
+											style="margin: 0 auto; margin-top: 10px; text-align: left;">
+											<label style="font-size: 1.3em; margin: 0 auto;">#(li.chapter_name??)
+											</label> <a
+												style="margin: 0 auto; float: right; font-size: 1.1em; color: #ff4e00"
+												href="#(base)/detail?id=#(li.chapter_id??)"> 开始阅读</a>
+
+										</div>
+										#end
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--//tabs-->
+
+			</div>
+		</div>
+	</div>
+</section>
+#end

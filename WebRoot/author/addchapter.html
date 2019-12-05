@@ -1,0 +1,77 @@
+#@_author() #define _main()
+
+<!--main content start-->
+<section id="main-content">
+	<section class="wrapper">
+
+		<!-- BASIC FORM ELELEMNTS -->
+		<div class="row mt">
+			<div class="col-lg-12">
+				<div class="form-panel">
+					<h4 class="mb">
+						<i class="fa fa-angle-right"></i> 新增章节
+					</h4>
+					<form class="form-horizontal style-form" method="post"
+						action="#(base)/author/toaddchapter">
+						<input hidden="hidden" name="chapter.chapter_id"
+							value="#(chapter.chapter_id??)">
+						<div class="form-group">
+							<label class="col-sm-2 col-sm-2 control-label">章节名字</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control"
+									value="#(chapter.chapter_name??)" name="chapter.chapter_name">
+								<span class="help-block">这儿填写章节的名字.</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 col-sm-2 control-label">图书名字</label>
+							<div class="col-sm-10">
+								<select class="form-control" name="chapter.chapter_book">
+									#for(b:book??)
+									<option value="#(b.book_id??)"
+										#if(b.book_id==chapter.chapter_book??) selected="selected" #end>#(b.book_title??)</option>
+									#end
+								</select> <span class="help-block">这儿填写图书名字.</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 col-sm-2 control-label">章节类型</label>
+							<div class="col-sm-10">
+								<select class="form-control" name="chapter.chapter_types">
+									#for(b:atypes??)
+									<option value="#(b.types_id??)" #if(b.types_id==chapter.chapter_types??) 
+									selected="selected" #end>#(b.types_name??)</option> #end
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 col-sm-2 control-label">章节描述</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" value="#(chapter.chapter_auto??)"
+									name="chapter.chapter_auto"> <span class="help-block">这儿填写章节的描述.</span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 col-sm-2 control-label">章节内容</label>
+							<div class="col-sm-10">
+								<textarea class="summernote" name="chapter.chapter_content" 
+									required="required">#(chapter.chapter_content??)</textarea>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-2 col-sm-2 control-label"></label>
+							<div class="col-lg-10">
+								<button type="submit" class="btn btn-primary">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- col-lg-12-->
+		</div>
+		<!-- /row -->
+	</section>
+</section>
+<!-- /MAIN CONTENT -->
+<!--main content end-->
+#end

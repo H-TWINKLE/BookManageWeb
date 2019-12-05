@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>#(title??)</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keyword" content="">
+
+<title></title>
+
+<!-- Bootstrap core CSS -->
+<link href="#(base)/admin/assets/css/bootstrap.css" rel="stylesheet">
+<!--external css-->
+<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="#(base)/admin/assets/css/style.css" rel="stylesheet">
+<link href="#(base)/admin/assets/css/style-responsive.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="#(base)/assets/css/toastr.css" />
+
+<script type="text/javascript">
+	var tips = "#(TipMsg??)";
+	var base = "#(base??)";
+</script>
+
+</head>
+
+<body>
+
+	<div id="login-page">
+		<div class="container">
+
+			<form class="form-login" action="#(base)/tomodifypass" method="post">
+				<input hidden="hidden" name="email" value="#(email??)">
+				<input hidden="hidden" name="code" value="#(code??)">
+				<h2 class="form-login-heading">修改密码</h2>
+				<div class="login-wrap">
+					<input required="required" type="password" class="form-control"
+						placeholder="请输入密码" autofocus name="pass1"> <br>
+					<input type="password" required="required" class="form-control"
+						name="pass2" placeholder="请再次输入密码"> 
+						<br>
+					<button class="btn btn-theme btn-block" type="submit">
+						<i class="fa fa-lock"></i> 提交
+					</button>
+					<hr>
+					<div class="registration">
+						#(email??)
+					</div>
+
+				</div>
+			</form>
+
+		</div>
+	</div>
+
+	<!-- js placed at the end of the document so the pages load faster -->
+	<script src="#(base)/admin/assets/js/jquery.js"></script>
+	<script src="#(base)/admin/assets/js/bootstrap.min.js"></script>
+	<script src="#(base)/assets/js/toastr.js"></script>
+	<script src="#(base)/assets/js/app.js"></script>
+
+	<!--BACKSTRETCH-->
+	<!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+	<script type="text/javascript"
+		src="#(base)/admin/assets/js/jquery.backstretch.min.js"></script>
+	<script>
+		$.backstretch("#(base)/admin/assets/img/login-bg.jpg", {
+			speed : 500
+		});
+	</script>
+
+
+</body>
+</html>

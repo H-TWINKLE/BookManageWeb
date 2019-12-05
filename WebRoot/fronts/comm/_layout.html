@@ -1,0 +1,436 @@
+#define _front()
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+<title>#(title??)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="" />
+<script>
+	addEventListener("load", function() {
+		setTimeout(hideURLbar, 0);
+	}, false);
+
+	function hideURLbar() {
+		window.scrollTo(0, 1);
+	}
+</script>
+<link rel="icon" type="image/png" href="#(base)/assets/img/logo.png"
+	sizes="32x32" />
+<link href="#(base)/fronts/assets/css/bootstrap.css" rel='stylesheet'
+	type='text/css' />
+<link href="#(base)/fronts/assets/css/login_overlay.css"
+	rel='stylesheet' type='text/css' />
+<link href="#(base)/fronts/assets/css/style6.css" rel='stylesheet'
+	type='text/css' />
+<link rel="stylesheet" href="#(base)/fronts/assets/css/shop.css"
+	type="text/css" />
+<link rel="stylesheet" href="#(base)/fronts/assets/css/owl.carousel.css"
+	type="text/css" media="all">
+<link rel="stylesheet" href="#(base)/fronts/assets/css/owl.theme.css"
+	type="text/css" media="all">
+<link href="#(base)/fronts/assets/css/easy-responsive-tabs.css"
+	rel='stylesheet' type='text/css' />
+<link href="#(base)/fronts/assets/css/style.css" rel='stylesheet'
+	type='text/css' />
+<link href="#(base)/fronts/assets/css/fontawesome-all.css"
+	rel="stylesheet">
+<link
+	href="http://fonts.proxy.ustclug.org/css?family=Inconsolata:400,700"
+	rel="stylesheet">
+<link
+	href="http://fonts.proxy.ustclug.org/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+	rel="stylesheet">
+
+<link rel="stylesheet" href="#(base)/assets/css/toastr.css" />
+
+<script type="text/javascript">
+	var tips = "#(TipMsg??)";
+	var base = "#(base??)";
+</script>
+
+</head>
+
+<body>
+	<div class="banner-top container-fluid" id="home">
+		<!-- header -->
+		<header>
+			<div class="row">
+				<div class="col-md-3 top-info text-left mt-lg-4">
+					<h6>联系我们</h6>
+					<ul>
+						<li><i class="fas fa-phone"></i> 电话</li>
+						<li class="number-phone mt-3">13111854785</li>
+					</ul>
+				</div>
+				<div class="col-md-6 logo-w3layouts text-center">
+					<h1 class="logo-w3layouts">
+						<a class="navbar-brand" href="#(base)/"> 雪霜文学 </a>
+					</h1>
+				</div>
+				<div class="col-md-3 top-info-cart text-right mt-lg-4">
+					<ul class="cart-inner-info">
+						#if(session.user??==null)
+						<li class="button-log"><a id="login" class="btn-open" href="#">
+								<span class="fa fa-user" aria-hidden="true"></span>
+						</a></li>
+						#else
+						<li class="button-log"><a class="btn-open"
+							href="#(base)/logout"> 退出登录 </a></li> 
+						#end
+					</ul>
+					<!-- 登录页面  -->
+					<!---->
+					#if(session.user??==null)
+					<div class="overlay-login text-left">
+						<button type="button" class="overlay-close1">
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</button>
+						<div class="wrap">
+							<h5 class="text-center mb-4">登录</h5>
+							<div class="login p-5 bg-dark mx-auto mw-100">
+								<form action="#(base)/login" method="post">
+									<div class="form-group">
+										<label class="mb-2">邮箱</label> <input type="email"
+											class="form-control" id="exampleInputEmail1" name="account"
+											aria-describedby="emailHelp" required=""> <small
+											style="margin-right: 200px;" id="emailHelp"
+											class="form-text text-muted">请在填写您的登录邮箱.</small>
+									</div>
+									<div class="form-group">
+										<label class="mb-2">密码</label> <input type="password"
+											class="form-control" id="exampleInputPassword1" name="pass"
+											required="">
+									</div>
+									<div class="form-check mb-2">
+										<input type="checkbox" class="form-check-input" name="re"
+											id="exampleCheck1"> <label class="form-check-label"
+											for="exampleCheck1">5天内免登录</label> <a href="#(base)/register"
+											style="float: right; color: #fff" class="form-check-label"
+											for="exampleCheck1">注册</a>
+									</div>
+									<button type="submit" class="btn btn-primary submit mb-4">登录</button>
+								</form>
+							</div>
+							<!---->
+						</div>
+					</div>
+					#end
+					<!---->
+				</div>
+			</div>
+			<div class="search">
+				<div class="mobile-nav-button">
+					<button id="trigger-overlay" type="button">
+						<i class="fas fa-search"></i>
+					</button>
+				</div>
+				<!-- open/close -->
+				<div class="overlay overlay-door">
+					<button type="button" class="overlay-close">
+						<i class="fa fa-times" aria-hidden="true"></i>
+					</button>
+					<form action="#(base)/search" method="post" class="d-flex">
+						<input name="what" class="form-control" type="search"
+							placeholder="搜索..." required="">
+						<button type="submit" class="btn btn-primary submit">
+							<i class="fas fa-search"></i>
+						</button>
+					</form>
+				</div>
+				<!-- open/close -->
+			</div>
+			<label class="top-log mx-auto"></label>
+			<nav
+				class="navbar navbar-expand-lg navbar-light bg-light top-header mb-2">
+
+				<button class="navbar-toggler mx-auto" type="button"
+					data-toggle="collapse" data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"> </span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav nav-mega mx-auto">
+						<!-- 主页 -->
+						<li class="nav-item active"><a class="nav-link ml-lg-0"
+							href="#(base)/">主页 <span class="sr-only">(current)</span>
+						</a></li>
+
+						<!-- 分类 -->
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown1"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> 分类 </a>
+							<ul class="dropdown-menu mega-menu ">
+								<li>
+									<div class="row">
+										<div class="col-md-12 media-list span12 text-left">
+											<h5 class="tittle-w3layouts-sub">分类</h5>
+											#for(li:session.atypes??) <a
+												style="width: 100px; color: #c0a384; font-size: 1.2em; margin: 10px;"
+												href="#(base)/types?id=#(li.types_id??)&types=#(li.types_name??)">#(li.types_name??)</a>
+											#end
+										</div>
+									</div>
+									<hr>
+								</li>
+							</ul></li>
+
+						<!-- 注册   -->
+						#if(session.user??==null)
+						<li class="nav-item"><a class="nav-link"
+							href="#(base)/register">注册</a></li>
+						<li class="nav-item"><a class="nav-link" onclick="openlogin()"
+							>登录</a></li> 
+						#else
+						#if(session.user.user_auth??==2)
+						<li class="nav-item"><a class="nav-link"
+							href="#(base)/author">作者中心</a></li> 
+						#else if(session.user.user_auth??==3)
+						<li class="nav-item"><a class="nav-link" href="#(base)/admin">后台</a>
+						</li>
+						 #else
+						<li class="nav-item"><a class="nav-link" href="#(base)/user">个人中心</a></li>
+						#end 
+						#end
+					</ul>
+
+				</div>
+			</nav>
+		</header>
+		<!-- //header -->
+
+		#@_fmain()
+
+
+		<!-- about -->
+		<!--footer -->
+		<footer class="py-lg-2 py-3" style="margin-top: 100px;">
+			<div class="container-fluid px-lg-5 px-3">
+
+				<div class="copyright-w3layouts mt-4">
+					<p class="copy-right text-center ">Copyright &copy; 2018.雪霜文学.</p>
+				</div>
+			</div>
+		</footer>
+		<!-- //footer -->
+
+		<!--jQuery-->
+		<script src="#(base)/fronts/assets/js/jquery-2.2.3.min.js"></script>
+		<!-- newsletter modal -->
+		<!-- Modal -->
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body text-center p-5 mx-auto mw-100">
+						<h6>Join our newsletter and get</h6>
+						<h3>50% Off for your first Pair of Eye wear</h3>
+						<div class="login newsletter">
+							<form action="#" method="post">
+								<div class="form-group">
+									<label class="mb-2">Email address</label> <input type="email"
+										class="form-control" id="exampleInputEmail2"
+										aria-describedby="emailHelp" placeholder="" required="">
+								</div>
+								<button type="submit" class="btn btn-primary submit mb-4">Get
+									50% Off</button>
+							</form>
+							<p class="text-center">
+								<a href="#(base)/">No thanks I want to pay full Price</a>
+							</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- 	<script>
+		$(document).ready(function() {
+			$("#myModal").modal();
+		});
+	</script> -->
+		<!-- // modal -->
+
+		<!--search jQuery-->
+		<script src="#(base)/fronts/assets/js/modernizr-2.6.2.min.js"></script>
+		<script src="#(base)/fronts/assets/js/classie-search.js"></script>
+		<script src="#(base)/fronts/assets/js/demo1-search.js"></script>
+		<!--//search jQuery-->
+		<!-- cart-js -->
+		<script src="#(base)/fronts/assets/js/minicart.js"></script>
+		<script>
+			googles.render();
+
+			googles.cart.on('googles_checkout', function(evt) {
+				var items, len, i;
+
+				if (this.subtotal() > 0) {
+					items = this.items();
+
+					for (i = 0, len = items.length; i < len; i++) {
+					}
+				}
+			});
+		</script>
+		<!-- //cart-js -->
+		<script>
+			$(document).ready(function() {
+				$(".button-log a").click(function() {
+					$(".overlay-login").fadeToggle(200);
+					$(this).toggleClass('btn-open').toggleClass('btn-close');
+				});
+			});
+			$('.overlay-close1').on(
+					'click',
+					function() {
+						$(".overlay-login").fadeToggle(200);
+						$(".button-log a").toggleClass('btn-open').toggleClass(
+								'btn-close');
+						open = false;
+					});
+		</script>
+		<!-- carousel -->
+		<!-- Count-down -->
+		<script src="#(base)/fronts/assets/js/simplyCountdown.js"></script>
+		<link href="#(base)/fronts/assets/css/simplyCountdown.css"
+			rel='stylesheet' type='text/css' />
+		<script>
+			var d = new Date();
+			simplyCountdown('simply-countdown-custom', {
+				year : d.getFullYear(),
+				month : d.getMonth() + 2,
+				day : 25
+			});
+		</script>
+		<!--// Count-down -->
+		<script src="#(base)/fronts/assets/js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('.owl-carousel').owlCarousel({
+					loop : true,
+					margin : 10,
+					responsiveClass : true,
+					responsive : {
+						0 : {
+							items : 1,
+							nav : true
+						},
+						600 : {
+							items : 2,
+							nav : false
+						},
+						900 : {
+							items : 3,
+							nav : false
+						},
+						1000 : {
+							items : 4,
+							nav : true,
+							loop : false,
+							margin : 20
+						}
+					}
+				})
+			})
+		</script>
+
+		<!-- //-smooth-scrolling -->
+
+
+		<!-- dropdown nav -->
+		<script>
+			$(document).ready(
+					function() {
+						$(".dropdown").hover(
+								function() {
+									$('.dropdown-menu', this).stop(true, true)
+											.slideDown("fast");
+									$(this).toggleClass('open');
+								},
+								function() {
+									$('.dropdown-menu', this).stop(true, true)
+											.slideUp("fast");
+									$(this).toggleClass('open');
+								});
+					});
+		</script>
+		<!-- //dropdown nav -->
+		<script src="#(base)/fronts/assets/js/move-top.js"></script>
+		<script src="#(base)/fronts/assets/js/easing.js"></script>
+		<script>
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event) {
+					event.preventDefault();
+					$('html,body').animate({
+						scrollTop : $(this.hash).offset().top
+					}, 900);
+				});
+			});
+		</script>
+		<script>
+			$(document).ready(function() {
+				/*
+										var defaults = {
+											  containerID: 'toTop', // fading element id
+											containerHoverID: 'toTopHover', // fading element hover id
+											scrollSpeed: 1200,
+											easingType: 'linear' 
+										 };
+				 */
+
+				$().UItoTop({
+					easingType : 'easeOutQuart'
+				});
+
+			});
+		</script>
+		<!--// -smoth-scrolling -->
+
+		<script src="#(base)/fronts/assets/js/bootstrap.js"></script>
+
+		<!-- script for responsive tabs -->
+		<script src="#(base)/fronts/assets/js/easy-responsive-tabs.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#horizontalTab').easyResponsiveTabs({
+					type : 'default', //Types: default, vertical, accordion           
+					width : 'auto', //auto or any width like 600px
+					fit : true, // 100% fit in a container
+					closed : 'accordion', // Start closed if in accordion view
+					activate : function(event) { // Callback function if tab is switched
+						var $tab = $(this);
+						var $info = $('#tabInfo');
+						var $name = $('span', $info);
+						$name.text($tab.text());
+						$info.show();
+					}
+				});
+				$('#verticalTab').easyResponsiveTabs({
+					type : 'vertical',
+					width : 'auto',
+					fit : true
+				});
+			});
+		</script>
+		<!-- js file -->
+
+		<script src="#(base)/assets/js/toastr.js"></script>
+		<script src="#(base)/assets/js/cropper.min.js"></script>
+		<script src="#(base)/assets/js/app.js"></script>
+</body>
+
+</html>
+
+#end

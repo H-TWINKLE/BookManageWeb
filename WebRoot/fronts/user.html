@@ -1,0 +1,155 @@
+#@_front() #define _fmain()
+
+<link href="#(base)/fronts/assets/css/contact.css" rel='stylesheet'
+	type='text/css' />
+
+<link rel="stylesheet" href="#(base)/assets/css/cropper.min.css" />
+
+<div class="banner_inner">
+	<div class="services-breadcrumb">
+		<div class="inner_breadcrumb">
+
+			<ul class="short">
+				<li><a href="#(base)/">主页</a> <i>|</i></li>
+				<li>个人中心</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+
+<!--//banner-sec-->
+<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+	<div class="container">
+		<h3 class="tittle-w3layouts text-center my-lg-4 my-4">我的信息</h3>
+		<div class="inner_sec">
+			<p class="sub text-center mb-lg-5 mb-3">原来,这里才是我的天地. For you</p>
+			<div class="address row">
+
+				<div class="col-lg-4 address-grid">
+					<div class="row address-info">
+						<div class="col-md-3 address-left text-center">
+							<i class="far fa-map"></i>
+						</div>
+						<div class="col-md-9 address-right text-left">
+							<h6><a href="#(base)/mycomment">我的评论</a></h6>
+							<p>咯,这儿都是我的评论.</p>
+						</div>
+					</div>
+
+				</div>
+				<div class="col-lg-4 address-grid">
+					<div class="row address-info">
+						<div class="col-md-3 address-left text-center">
+							<i class="far fa-envelope"></i>
+						</div>
+						<div class="col-md-9 address-right text-left">
+							<h6>
+								<a href="#(base)/tip">我的消息</a>
+							</h6>
+							<p>原来我的消息都在这里 ,笔芯.</p>
+						</div>
+
+					</div>
+				</div>
+				<div class="col-lg-4 address-grid">
+					<div class="row address-info">
+						<div class="col-md-3 address-left text-center">
+							<i class="fas fa-mobile-alt"></i>
+						</div>
+						<div class="col-md-9 address-right text-left">
+							<h6>
+								<a href="#(base)/logout">退出登录</a>
+							</h6>
+							<p>再见,我的世界.</p>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="contact_grid_right">
+				<form action="#(base)/usermodi" method="post">
+					<input hidden="hidden" name="user.user_id"
+						value="#(session.user.user_id??)"> <input type="file"
+						hidden="hidden" id="file" style="display: none;"> <input
+						type="text" hidden="hidden" id="cronimg" name="cronimg"
+						style="display: none;">
+					<div class="row contact_left_grid">
+						<div class="col-md-6 con-left">
+							<div class="form-group">
+								<label class="my-2">我的账号</label> <input class="form-control"
+									type="text" name="user.user_account" disabled="disabled"
+									value="#(session.user.user_account??)" required="">
+							</div>
+							<div class="form-group">
+								<label>我的昵称</label> <input class="form-control" type="text"
+									name="user.user_nickname"
+									value="#(session.user.user_nickname??)" placeholder=""
+									required="">
+							</div>
+							<div class="form-group">
+								<label class="my-2">我的性别</label>
+								<div class="col-sm-12">
+									<select class="form-control" name="user.user_sex">
+										<option value="1" selected="">男</option>
+										<option value="2" #if(session.user.user_sex??==2) selected=""
+											#end>女</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>我的个性签名</label> <input class="form-control" type="text"
+									name="user.user_auto" value="#(session.user.user_auto??)"
+									placeholder="请填写个性签名" required="">
+							</div>
+							<div class="form-group">
+								<label>我的电话</label> <input class="form-control" type="number"
+									name="user.user_tel" value="#(session.user.user_tel??)"
+									placeholder="请填写电话" required="">
+							</div>
+							<div class="form-group">
+								<label class="my-2">申请权限</label>
+								<div class="col-sm-12">
+									<select class="form-control" name="user.user_auth">
+										<option value="1" selected="selected">读者</option>
+										<option value="3" #if(session.user.user_auth??==3)
+											selected="selected" #end>管理员</option>
+										<option value="2" #if(session.user.user_auth??==2)selected=
+											"selected" 
+											#end>作者</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label>我的地址</label> <input class="form-control" type="text"
+									name="user.user_home" value="#(session.user.user_home??)"
+									placeholder="请填写家庭住址" required="">
+							</div>
+						</div>
+						<div class="col-md-6 con-right">
+							<div class="form-group">
+								<label>修改头像</label>
+								<div class="col-sm-8" style="margin-top: 20px;">
+									<img src="#(base)/getimg" id="img" style="max-width: 200px;"
+										onclick="fileselect()" class="img-circle" width="60">
+								</div>
+								<div>
+									<span class="help-block">点击上传头像.</span> <img
+										style="margin-top: 50px;" id="imgs" src="">
+								</div>
+							</div>
+							<input style="margin-top: 150px;" class="form-control"
+								type="submit" value="修改">
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- about -->
+
+#end

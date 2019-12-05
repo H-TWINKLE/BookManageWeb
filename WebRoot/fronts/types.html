@@ -1,0 +1,59 @@
+#@_front() #define _fmain()
+
+<!--//banner-sec-->
+<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+	<div class="container-fluid">
+		<div class="inner-sec-shop px-lg-4 px-3">
+			<h3 class="tittle-w3layouts my-lg-4 my-4">类型：#(types??)</h3>
+			<h6 class="tittle-w3layouts my-lg-4 my-4">找到 #(book.size()??)本书</h6>
+			<div class="row">
+
+				#for(li:book??)
+
+				<!-- /womens -->
+				<div class="col-md-3 product-men women_two"
+					style="margin-top: 40px;">
+					<div class="product-googles-info googles">
+						<div class="men-pro-item">
+							<div class="men-thumb-item">
+								<img src="#(base)/upload/temp/#(li.book_img??)"
+									class="img-fluid" alt="">
+								<div class="men-cart-pro">
+									<div class="inner-men-cart-pro">
+										<a href="#(base)/books?id=#(li.book_id??)"
+											class="link-product-add-cart">开始阅读</a>
+									</div>
+								</div>
+								<span class="product-new-top">热度：#(li.book_hot??)</span>
+							</div>
+							<div class="item-info-product">
+								<div class="info-product-price">
+									<div class="grid_meta">
+										<div class="product_price">
+											<h4>
+												<a href="#(base)/books?id=#(li.book_id??)"
+													style="font-size: 0.7em;">#(li.book_title??)</a>
+											</h4>
+											<div class="grid-price mt-2">
+												<span class="money ">作者：#(li.user_nickname??)</span>
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				#end
+				<!-- /mens -->
+			</div>
+			<!--//meddle-->
+		</div>
+	</div>
+</section>
+<!-- about -->
+
+#end
